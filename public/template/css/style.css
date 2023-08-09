@@ -1,0 +1,15 @@
+.page_header{
+    margin-bottom: 20px;
+}
+.page_header a i {
+    padding-right: 7px;
+}
+.back_btn{
+    background-color: rgb(166, 166, 166);
+}
+.login-image {
+    background: url("/template/img/login.jpg");
+    background-position: center;
+    background-size: 440px 300px;
+  }
+  
