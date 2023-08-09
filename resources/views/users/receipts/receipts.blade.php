@@ -2,7 +2,16 @@
 
 @section('user_content')
           
-                
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h2 class="m-0 font-weight-bold text-primary">Receipts of <strong>{{ $user->name }}</strong></h2>
@@ -12,8 +21,9 @@
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>User</th>
+                            <th>Admin</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Note</th>
@@ -23,12 +33,9 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Total</th>
-                            <th>Note</th>
-                            <th class="text-right">Action</th>
-                            
+                            <th colspan="3" class="text-right">Total :</th>
+                            <th class="text-right">{{ $user->receipts()->sum('amount') }}</th>
+                            <th colspan="2"></th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -37,14 +44,13 @@
                         
                         <tr>
                             <td>{{ $user->name }}</td>
+                            <td>{{ optional($receipt->admin)->name }}</td>
                             <td>{{ $receipt->date }}</td>
-                            <td>{{ $receipt->amount }}</td>
+                            <td class="text-right">{{ $receipt->amount }}</td>
                             <td>{{ $receipt->note }}</td>
                             <td class="text-right">
                                 
-                                <form method="POST" action="{{ route('users.destroy', ['user' => $user->id]) }}">
-
-                                    <a class="btn btn-primary btn-sm" href="{{ route('users.show', ['user'=>$user->id]) }}"><i class="fa fa-eye"></i></a>
+                                <form method="POST" action="{{ route('user.receipts.destroy', ['id' => $user->id , 'receipt_id' => $receipt->id]) }}">
 
                                     @csrf
                                     @method('DELETE')
@@ -62,5 +68,7 @@
     </div>
   
 <!-- DataTales Example -->
+
+
     
 @endsection

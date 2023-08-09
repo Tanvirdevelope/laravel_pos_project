@@ -12,6 +12,12 @@ class Payment extends Model
         'amount',
         'note',
         'user_id',
+        'admin_id'
         
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
