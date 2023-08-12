@@ -23,7 +23,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
-                            <th>User</th>
                             <th>Admin</th>
                             <th>Date</th>
                             <th>Total</th>
@@ -34,7 +33,7 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th colspan="3" class="text-right">Total :</th>
+                            <th colspan="2" class="text-right">Total :</th>
                             <th class="text-right">{{ $user->payments()->sum('amount') }}</th>
                             <th colspan="2"></th>
                             
@@ -45,7 +44,6 @@
                             
                         
                         <tr>
-                            <td>{{ $user->name }}</td>
                             <td>{{ optional($payment->admin)->name }}</td>
                             <td>{{ $payment->date }}</td>
                             <td class="text-right">{{ $payment->amount }}</td>
