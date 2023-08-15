@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Route;
 
 
     Route::get('users/{id}/receipts', '\App\Http\Controllers\UserReceiptsController@index')->name('user.receipts');
-    Route::post('users/{id}/receipts', '\App\Http\Controllers\UserReceiptsController@store')->name('user.receipts.store');
+    Route::post('users/{id}/receipts/{invoice_id?}', '\App\Http\Controllers\UserReceiptsController@store')->name('user.receipts.store');
     Route::delete('users/{id}/receipts/{receipt_id}', '\App\Http\Controllers\UserReceiptsController@destroy')->name('user.receipts.destroy');
   
 
