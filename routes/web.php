@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 
     Route::get('users/{id}/sales', '\App\Http\Controllers\UserSalesController@index')->name('user.sales');
+
     Route::post('users/{id}/invoices', '\App\Http\Controllers\UserSalesController@createInvoice')->name('user.sales.store');
     Route::get('users/{id}/invoices/{invoice_id}', '\App\Http\Controllers\UserSalesController@invoice')->name('user.sales.invoice_details');
     Route::delete('users/{id}/invoices/{invoice_id}', '\App\Http\Controllers\UserSalesController@destroy')->name('user.sales.destroy');
@@ -42,11 +43,19 @@ use Illuminate\Support\Facades\Route;
     Route::delete('users/{id}/invoices/{invoice_id}/{item_id}', '\App\Http\Controllers\UserSalesController@destroy_item')->name('user.sales.invoices.delete_item');
 
 
-
+    // Route for Purchase
     Route::get('users/{id}/purchases', '\App\Http\Controllers\UserPurchasesController@index')->name('user.purchases');
 
+    Route::post('users/{id}/purchases', '\App\Http\Controllers\UserPurchasesController@createInvoice')->name('user.purchases.store');
+    Route::get('users/{id}/purchases/{invoice_id}', '\App\Http\Controllers\UserPurchasesController@invoice')->name('user.purchases.invoice_details');
+    Route::delete('users/{id}/purchases/{invoice_id}', '\App\Http\Controllers\UserPurchasesController@destroy')->name('user.purchases.destroy');
+    Route::post('users/{id}/purchases/{invoice_id}', '\App\Http\Controllers\UserPurchasesController@addItem')->name('user.purchases.add_item');
+    Route::delete('users/{id}/purchases/{invoice_id}/{item_id}', '\App\Http\Controllers\UserPurchasesController@destroy_item')->name('user.purchases.delete_item');
+
+
+    // Route for Payments
     Route::get('users/{id}/payments', '\App\Http\Controllers\UserPaymentsController@index')->name('user.payments');
-    Route::post('users/{id}/payments', '\App\Http\Controllers\UserPaymentsController@store')->name('user.payments.store');
+    Route::post('users/{id}/payments/{invoice_id?}', '\App\Http\Controllers\UserPaymentsController@store')->name('user.payments.store');
     Route::delete('users/{id}/payments/{payment_id}', '\App\Http\Controllers\UserPaymentsController@destroy')->name('user.payments.destroy');
 
 

@@ -12,7 +12,8 @@ class Payment extends Model
         'amount',
         'note',
         'user_id',
-        'admin_id'
+        'admin_id',
+        'purchase_invoice_id'
         
     ];
 
