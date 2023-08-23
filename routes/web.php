@@ -70,6 +70,12 @@ use Illuminate\Support\Facades\Route;
     Route::resource('categories', '\App\Http\Controllers\CategoriesController' , ['except' => ['show']]);
 
     Route::resource('products', '\App\Http\Controllers\ProductsController');
+
+
+    Route::get('stocks', '\App\Http\Controllers\ProductsStockController@index')->name('stocks');
+
+
+    Route::get('reposts/sales', '\App\Http\Controllers\Reports\SaleReportController@index')->name('reports.sales');
     
 }); 
 
