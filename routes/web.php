@@ -76,6 +76,7 @@ use Illuminate\Support\Facades\Route;
 
 
     Route::get('reposts/sales', '\App\Http\Controllers\Reports\SaleReportController@index')->name('reports.sales');
+    Route::get('reposts/purchases', '\App\Http\Controllers\Reports\PurchaseReportController@index')->name('reports.purchases');
     
 }); 
 

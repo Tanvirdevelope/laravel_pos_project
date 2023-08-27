@@ -3,10 +3,10 @@
 @section('main_content')
       <div class="row clearfix page_header">
         <div class="col-md-4">
-            <h2>Sales Report</h2>
+            <h2>Purchases Report</h2>
         </div>
         <div class="col-md-8 text-right">
-            {!! Form::open(['route' => ['reports.sales'] , 'method' => 'get']) !!}
+            {!! Form::open(['route' => ['reports.purchases'] , 'method' => 'get']) !!}
                 <div class="form-row align-items-center">
                   <div class="col-auto">
                     <label class="sr-only" for="inlineFormInput">start Date</label>
@@ -32,7 +32,7 @@
 <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Sales Report Form <strong>{{ $start_date }}</strong> to <strong>{{ $end_date }}</strong></h6>
+            <h6 class="m-0 font-weight-bold text-primary">Purchases Report Form <strong>{{ $start_date }}</strong> to <strong>{{ $end_date }}</strong></h6>
         </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -50,14 +50,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sales as $sale)
+                        @foreach ($purchases as $purchase)
                             
                         <tr>
-                            <td>{{ $sale->date }}</td>
-                            <td>{{ $sale->title }}</td>
-                            <td class="text-right">{{ $sale->quantity }}</td>
-                            <td class="text-right">{{ $sale->price }}</td>
-                            <td class="text-right">{{ $sale->total }}</td>
+                            <td>{{ $purchase->date }}</td>
+                            <td>{{ $purchase->title }}</td>
+                            <td class="text-right">{{ $purchase->quantity }}</td>
+                            <td class="text-right">{{ $purchase->price }}</td>
+                            <td class="text-right">{{ $purchase->total }}</td>
                           </tr>
                         @endforeach
                     </tbody>
@@ -66,9 +66,9 @@
                         <tr>
                             <th></th>
                             <th class="text-right">Total Items:</th>
-                            <th class="text-right">{{ $sales->sum('quantity') }}</th>
+                            <th class="text-right">{{ $purchases->sum('quantity') }}</th>
                             <th class="text-right">Total:</th>
-                            <th class="text-right">{{ $sales->sum('total') }}</th>
+                            <th class="text-right">{{ $purchases->sum('total') }}</th>
                         </tr>
                     </tfoot>
                 </table>
