@@ -76,7 +76,12 @@ use Illuminate\Support\Facades\Route;
 
 
     Route::get('reposts/sales', '\App\Http\Controllers\Reports\SaleReportController@index')->name('reports.sales');
+
     Route::get('reposts/purchases', '\App\Http\Controllers\Reports\PurchaseReportController@index')->name('reports.purchases');
+
+    Route::get('reposts/payments', '\App\Http\Controllers\Reports\PaymentReportController@index')->name('reports.payments');
+
+    Route::get('reposts/receipts', '\App\Http\Controllers\Reports\ReceiptReportController@index')->name('reports.receipts');
     
 }); 
 

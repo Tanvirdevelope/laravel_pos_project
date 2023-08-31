@@ -35,53 +35,53 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if ($main_menu == 'Users') active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Users</span>
                 </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+                <div id="collapseOne" class="collapse @if ($main_menu == 'Users') show @endif" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="{{ url('groups') }}">Groups</a>
-                        <a class="collapse-item" href="{{ url('users') }}">Users</a>
+                        <a class="collapse-item @if ($sub_menu == 'Groups') active @endif" href="{{ url('groups') }}">Groups</a>
+                        <a class="collapse-item @if ($sub_menu == 'Users') active @endif" href="{{ url('users') }}">Users</a>
                     </div>
                 </div>
             </li>
 
             
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if ($main_menu == 'Products') active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-bars"></i>
                     <span>Products</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @if ($main_menu == 'Products') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="{{ route('categories.index') }}">Categories</a>
-                        <a class="collapse-item" href="{{ url('products') }}">Products</a>
-                        <a class="collapse-item" href="{{ route('stocks') }}">stocks</a>
+                        <a class="collapse-item @if ($sub_menu == 'Categories') active @endif" href="{{ route('categories.index') }}">Categories</a>
+                        <a class="collapse-item @if ($sub_menu == 'Products') active @endif" href="{{ url('products') }}">Products</a>
+                        <a class="collapse-item @if ($sub_menu == 'stocks') active @endif" href="{{ route('stocks') }}">stocks</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if ($main_menu == 'Reports') active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport"
                     aria-expanded="true" aria-controls="collapseReport">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reports</span>
                 </a>
-                <div id="collapseReport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseReport" class="collapse @if ($main_menu == 'Reports') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="{{ route('reports.sales') }}">Sales</a>
-                        <a class="collapse-item" href="{{ route('reports.purchases') }}">Purchases</a>
-                        <a class="collapse-item" href="{{ route('stocks') }}">Payments</a>
-                        <a class="collapse-item" href="{{ route('stocks') }}">Receipts</a>
+                        <a class="collapse-item @if ($sub_menu == 'Sales') active @endif" href="{{ route('reports.sales') }}">Sales</a>
+                        <a class="collapse-item @if ($sub_menu == 'Purchases') active @endif" href="{{ route('reports.purchases') }}">Purchases</a>
+                        <a class="collapse-item @if ($sub_menu == 'Payments') active @endif" href="{{ route('reports.payments') }}">Payments</a>
+                        <a class="collapse-item @if ($sub_menu == 'Receipts') active @endif" href="{{ route('reports.receipts') }}">Receipts</a>
                     </div>
                 </div>
             </li>

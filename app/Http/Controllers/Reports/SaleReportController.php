@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Reports;
 use App\Http\Controllers\Controller;
 use App\Models\SaleItem;
 use Illuminate\Http\Request;
+use PhpParser\Builder\Function_;
 
 class SaleReportController extends Controller
 {
+    public Function __construct()
+    {
+        parent::__construct();
+        $this->data['main_menu'] = 'Reports';
+        $this->data['sub_menu'] = 'Sales';
+    }
+
     public function index(Request $request)
     {
         $this->data['start_date'] = $request->get('start_date', date('Y-m-d'));

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class PurchaseReportController extends Controller
 {
+    public Function __construct()
+    {
+        parent::__construct();
+        $this->data['main_menu'] = 'Reports';
+        $this->data['sub_menu'] = 'Purchases';
+    }
+
     public function index(Request $request)
     {
         $this->data['start_date'] = $request->get('start_date', date('Y-m-d'));

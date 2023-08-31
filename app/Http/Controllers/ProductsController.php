@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public Function __construct()
+    {
+        parent::__construct();
+        $this->data['main_menu'] = 'Products';
+        $this->data['sub_menu'] = 'Products';
+    }
+
     public function index()
     {
         $this->data['products'] = Product::all();

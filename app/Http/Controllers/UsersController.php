@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public Function __construct()
+    {
+        parent::__construct();
+        $this->data['main_menu'] = 'Users';
+        $this->data['sub_menu'] = 'Users';
+    }
+
     public function index()
     {
         $this->data['users'] = User::all();
